@@ -1,0 +1,1262 @@
+/*====  RESET ============================ */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* ====  VARIABLES ============================ */
+/* :root {
+  --header-height: 4.5rem;
+
+  /* colors */
+/* --hue: 159;
+  /* HSL color mode */
+/*--base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+
+/*===  BASE ============================ */
+/* html {
+  scroll-behavior: smooth;
+} /*ROLAGEM SUAVE SEM JS*/
+
+/* body {
+  font: 400 1rem 'DM Sans', sans-serif;
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font: 700 1.875rem 'Poppins', sans-serif;
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem 'DM Sans', sans-serif;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+/*====  LAYOUT ============================ */
+/* .container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+} /* 2 rem é o espaço de 32 px embaixo da foto */
+
+/* .section {
+  padding: 5rem 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+} /* são os 16 px de espaço que há embaixo do título*/
+
+/* .section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15); 
+} /* o primeiro é a luz iluminando o eixo x, que faz sombra na vertical, o segundo é a luz iluminando o eixo y, que faz sombra na horizontal, o terceiro é o blur e o quarto é o espalhamento e o quinto é a cor, tiramos o blur*/ /*a sombra só vai aparecer com js*/
+
+/* 
+
+para se divertir: mudando a cor do logo e do icon-menu quando tem scroll
+
+#header.scroll {
+  backgroundcolor: var(--base-color);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+#header.scroll .logo span {
+  color: white;
+}
+
+#header.scroll .icon-menu {
+  color: white;
+}
+
+e ainda dá para add as transições no #header.scroll .logo span e no #header.scroll .icon-menu 
+
+*/
+
+/* main {
+  margin-top: calc(var(--header-height) + 2rem);
+}
+
+/*====  LOGO ============================ */
+/* .logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+/*====  NAVIGATION ============================ */
+/* nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+} /* MENU DESAPARECE, SEM ISSO EU VEJO QUE O MENU DÁ UMA PISCADA ANTES DE APARECER */
+
+/* Mostrar menu */
+/* nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+} /*ESSE GRID FAZ O MENU APARECER MESMO SÓ QUANDO EU CLICAR EM ALGO*/
+
+/* nav.show ul.grid {
+  gap: 4rem;
+}
+
+/* toggle menu */ /*toggle é interruptor*/
+/* .toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+
+  transition: 0.2s;
+ } /*FAZ O BOTÃO VIR DE LA DE CIMA JUNTO COM OS POSICIONAMENTOS DE 1.5*/
+
+/* nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/*NO X DE FECHAR VAI APARECER A OPACIDADE DE 0 (QUE ESTÁ NO NAV .ICON-CLOSE) ATÉ 1 (QUE ESTÁ NO NAV .SHOW DIV.ICON-CLOSE)*/
+
+/*====  HOME ============================ */
+/* #home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  position: relative;
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+}
+
+/*====  ABOUT ============================ */
+/* #about {
+  background: white;
+}
+
+#about .container {
+  margin: 0;
+} /*tira a margem da imagem, queremos as imagens coloda na tela dos lados*/
+
+/* #about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;  
+  left: -33%;
+  z-index: 0;
+} /*top e left estão deslocando a parte verde, a conta deita foi:(192*100)/58 e (34*100)/405 */
+
+/* #about .image img {
+  position: relative;
+} /*a primeira imagem tem um espaço lateral à direita, essa aqui não tem, portanto, tirei a configuração right:2.93rem*/
+
+/* #about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+} /*a imagem não tem margem, é grudada nas lateraiss, mas o texto tem margem, não é grudado nas laterais. aqui é onde coloco as margens no texto*/
+
+/*====  SERVICES ============================ */ /*services = fazendo cartões*/
+/* .cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem; 
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08); 
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0; 
+  text-align: center;
+} /*top e bottom é 58/16 = 3.625 rem e laterais 32/16 = 2 rem*/ /*info do box shadow copiou e colou do inspect no figma*/ /*tem borda só em cima, embaixo não tem, o primeiro valor é a borda superior esquerda e o segundo é a borda superior direita, terceir é a borda inferior esquerda e o quarto é a borda inferior direita*/
+
+/* .card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+} /*texto do card*/
+
+/****** TESTIMONIALS *********/
+
+/* #testimonials {
+  background: white;
+}
+
+#testimonials h2 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative; 
+  text-indent: 1.875 rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+} /* aqui estou dizendo para o position absolute do span (que são as aspas), que está no código #testimonials blockquote p span, que ele é absoluto, em relação ao p */
+
+/* #testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover; 
+  clip-path: circle(); 
+  margin-right: 0.5rem; 
+} /* margem direita da imagem, dando um espaço entre imagem e nome da cliente */ /* clip-path: imagem em formato de círculo */ /*uso isso para quando a imagem não é quadrada, e aí ele cobre com a imagem o espaço que tiver ali */
+
+/* SWIPER */
+
+/* .swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+} */
+
+/* .swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+} */
+
+/* .swiper-pagination-bullet-active {
+  background: var(--base-color);
+} */
+
+/* STYLE PELO PROF. O MEU NÃO ESTAVA FUNCIONANDO O SLIDE E NEM O SOMBREADO DO HEADER QUANDO ROLA A PÁGINA. DEPOIS DE COLOCAR O SLIDE O MENU PAROU DE FUNCIONAR - NÃO APAGUEI O MEU PARA PODER COMPARAR E ACHAR O ERRO E POR CAUSA DOS COMERNTÁRIOS */
+
+/*====  RESET ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*====  VARIABLES ============================ */
+:root {
+  --header-height: 4.5rem;
+
+  /* colors */
+  --hue: 159;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /* fonts */
+  --list-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/*===  BASE ============================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font: 700 var(--list-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+/*====  LAYOUT ============================ */
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0;
+} /*pega o header height e add mais 5 em todas as seções*/
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
+/*====  LOGO ============================ */
+.logo {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/*====  NAVIGATION ============================ */
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+} /* quando passo o mouse em cima e quando estiver ativo no 'a', ficará da cor base-color */
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+} /* quando eu passar o mouse em cima o after vai crescer a linha de baixo e quando estiver ativo o after também vai ativar a linha de baixo */
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/* Mostrar menu */
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+/* toggle menu */
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+
+  transition: 0.2s;
+}
+
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/*====  HOME ============================ */
+#home {
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  position: relative;
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+}
+
+/*====  ABOUT ============================ */
+#about {
+  background: white;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/*====  SERVICES ============================ */
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/*====  TESTIMONIALS ============================ */
+#testimonials {
+  background: white;
+}
+
+#testimonials h2 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/* swiper */
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/*====  CONTACT ============================ */
+#contact h2 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/****** FOOTER ***************/
+footer {
+  background: var(--base-color);
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: inline-block; /* como a logo é um elemento 'a' o display padrão dele é inline, no display inline não tenho a opção de colocar margin-bottom, mas colocando como inline-block, ai posso colocar margin-bottom */
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+/* grid permite destravar algumas funcionalidades, por exexmplo, gap, que é espaço  entre os elementos */
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+/* footer .social {
+  grid-auto-flow: column; } 
+  
+  /* grid joga um abaixo do outro por padrão, para muda isso, uso esse comando, porém esse elemento espalha dentro de uma linha toda, que se ajustará conforme mexo no tamanho do dispositivo, aí precisaria ajustar esse ponto */ /* outra forma de alinhar esse ícones é pelo código abaixo, 
+  
+  footer .social {
+    display: flex;
+    gap: 2rem; /* gap é só entre elementos, lembrando que tenho que habilitar ele, aqui habilitei com flex para jogar um ao lado do outro
+  } */ /*porém a decisão final para lidar com isso é o código abaixo:
+  
+  footer .social a {
+    margin-right: 2rem;
+  }
+
+  */
+
+/* footer .social a {
+  margin-right: 2rem;
+  transition: 0.3s; /* sem transition não mexe */
+/* display: inline-block;
+ } */ /*trocando esse código pelo abaixo, pois o grid vai ajuadar nas adaptações para outros dispositivos que serão feitas*/
+
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
+footer .social a {
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/* back to top */
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+  position: fixed; /*para entender position fixed e absolute, procurar por imagens no google, no ansolute um elemento vai para tras e o outro sobe no eixo z*/
+
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.5rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVIDADE */
+
+/*========= MEDIA QUERIES =========*/
+
+/* extra large devices: 1200 > */
+@media (min-width: 1200px) {
+  /* reusable classes */
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  /* navigation */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+  /* layout */
+
+  main {
+    margin-top: var(--header-height);
+  } /*só com essa opção o maim fica colado no header, então precisei fazer um calc na .section geral*/
+
+  /* main {
+    margin-top: calc(var(--header-height) + 2rem);
+  } /* o main, a caixa principal afaste do topo o tamanho do topo mais 2rem: estava dessa forma no código anterior, que está na parte geral e não só aqui no media   */
+
+  /* Home */
+
+  #home .container {
+    grid-auto-flow: column;
+    /* width: fit-content; */
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0; /* o order só é possível se estiver dentro de uma caixa grid, order também funciona com flex */
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /* about */
+
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /* services */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* testimonials*/
+
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* contact */
+
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /* FOOTER */
+  footer .section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.25rem;
+  }
+
+  /* footer a i {
+    margin-left: 3rem;
+  }*/ /* alinha os icones do footer com os icones acima */
+}
+/* large devices: 1023 > */
+
+/* @media (min-width: 1023px) {
+  /* reusable classes */
+/* .container {
+    max-width: 943px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  /* navigation */
+/* nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+  /* layout */
+
+/* main {
+    margin-top: var(--header-height);
+  } /*só com essa opção o maim fica colado no header, então precisei fazer um calc na .section geral*/
+
+/* main {
+    margin-top: calc(var(--header-height) + 2rem);
+  } /* o main, a caixa principal afaste do topo o tamanho do topo mais 2rem: estava dessa forma no código anterior, que está na parte geral e não só aqui no media   */
+
+/* Home */
+
+/* #home .container {
+    grid-auto-flow: column;
+    /* width: fit-content; */
+/* justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0; /* o order só é possível se estiver dentro de uma caixa grid, order também funciona com flex */
+/* max-width: 24rem;
+    text-align: left;
+  }
+
+  /* about */
+
+/* #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /* services */
+/* .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* testimonials*/
+
+/* #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* contact */
+
+/* #contact .container {
+    grid-auto-flow: column;
+  }
+
+  /* large devices: 992 > de 992 para cima */
+/* @media (min-width: 992px) {
+    :root {
+      --title-font-size: 2.25rem;
+      --subtitle-font-size: 1.125rem;
+    }
+  }
+}
+/* medium devices: 767 > */
+
+/* TIRANDO O MEU MAIS UMA VEZ E DEIXANDO O DO PROF PQ OS ICONES DE REDE SOCIAL ESTÃO EM BLOCO E TEM UMA SETA A MAIS QUE VOLTA AO TOPO */
